@@ -1,0 +1,219 @@
+@font-face {
+  font-family: TT_Skip-E;
+  src: url(../fonts/Genshin_Impact.ttf);
+}
+
+html {
+  Font-family: 'TT_Skip-E', Arial, serif;
+  color: aliceblue;
+}
+
+body {
+
+  background: url(../img/backgrnd.jpg) no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+header .container{
+  position: relative;
+  
+  width: 100%;
+  min-width: 1107px;
+  /* background: rgb(57, 73, 96);  */
+  height: 62px;
+
+}
+
+.gallery-h1 {
+  font-family: 'TT_Skip-E', Arial, serif;
+  
+  font-size: 50px;
+
+}
+
+.gallery-container {
+  position: relative;
+  width: 100%;
+}
+
+.gallery-center-focus {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.gallery-audio {
+  width: 300px;
+  height: 40px;
+  display: block;
+  position: relative;
+
+  left: 50%;
+  margin-right: 50%;
+  transform: translate(-50%, -50%);
+
+  outline: 2px outset aliceblue;
+}
+
+audio {
+  content: "";
+}
+
+.audioPlay,
+.audioPrev,
+.audioNext {
+  display: inline-block;
+  margin: 10px 10px; 
+  padding: 9px 10px;
+
+  Font-family: 'TT_Skip-E', Arial, serif;
+  vertical-align: top;
+  text-align: center;
+  color: aliceblue;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  background-color: rgba(24, 23, 23, 0.747);
+  cursor: pointer;
+}
+
+.show {
+  display: none;
+}
+
+/* .gallery-audio button {
+/*   display: relative;
+  left: 50%;
+  margin-right: 50%;
+  transform: translate(-50%, -50%); */
+/* } */
+
+.gallery-audio span {
+  vertical-align: top;
+  text-align: center;
+}
+.gallery-grid {
+  position: relative;
+  display: inline-block;
+  
+  margin-top: 40px;
+}
+
+.gallery-grid img {
+  display: inline;
+  float: left;
+  margin: 6px;
+
+  width: 200px;
+  height: 200px;
+  border: solid 3px aliceblue;
+  border-radius: 2px;
+}
+
+.gallery-grid img:hover {
+  transition: 0.5s;
+  transform: scale(1.3);
+  border-color: rgb(252, 243, 183);
+}
+
+nav li {
+  display: block;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+nav a {
+  display: inline;
+  float: left;
+
+  margin: 0px 6px;
+  padding: 14px 0;
+
+  width: 160px;
+  max-height: 50px;
+
+  color: aliceblue;
+
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+
+  outline-style: double ;
+  outline-color: black;
+}
+
+nav a:hover {
+  color: rgb(252, 243, 183)
+}
+
+.user-block {
+  display: block;
+  float: right;
+
+  margin: 0px 40px 0px 6px;
+  padding: 14px 0;
+
+  width: 160px;
+  max-height: 50px;
+
+  outline-style: double ;
+  outline-color: black;
+
+  text-align: center;
+}
+
+.login {
+
+  color: aliceblue;
+
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.clearfix::after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+
+.suka {
+  background: rgb(57, 73, 96);
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 150px;
+  width: 150px;
+
+ /*  border: solid 2px #000000; */
+
+  outline-style: double ;
+
+  text-align: center;
+
+}
+
+.suka button {
+  display: inline-block;
+  position: absolute;
+
+  margin: 0;
+  padding: 0 5px;
+
+  top: 50%;
+  left: 50%;
+  
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+
+}
+
+.suka button:hover {
+  color: rgb(204, 60, 161);
+}
