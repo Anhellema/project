@@ -1,42 +1,68 @@
 "use strict";
 
+// GOBLIN PAGE
+// Initialize character inventory and gold
+let inventory = {};
+let gold = 100;
 
-let number = 5;
-const leftBorderWidth = 1;
-
-
-
-{
-  let result = 50;
+// Function to add item to inventory
+function addItemToInventory(itemName) {
+	if (inventory[itemName]) {
+		// Item already exists in inventory, increment quantity
+		inventory[itemName]++;
+	} else {
+		// Item doesn't exist in inventory, add it with quantity of 1
+		inventory[itemName] = 1;
+	}
+  
+	// Update inventory display
+	updateInventoryDisplay();
 }
 
+// Function to update inventory display
+function updateInventoryDisplay() {
+	let itemList = document.getElementById("item-list");
+	itemList.innerHTML = "";
+  
+	for (let itemName in inventory) {
+		let itemQuantity = inventory[itemName];
+		let itemElement = document.createElement("li");
+		itemElement.textContent = itemName + ": " + itemQuantity;
+		itemList.appendChild(itemElement);
+	}
+}
 
-let num = 4.6;
+// Function to update gold display
+function updateGoldDisplay() {
+	let goldElement = document.getElementById("gold");
+	goldElement.textContent = gold;
+}
 
-console.log(-4/0);
-console.log('string' * 9);
+// Add event listeners to buy buttons
+let buyButtons = document.getElementsByClassName("buy-button");
+for (let i = 0; i < buyButtons.length; i++) {
+	let buyButton = buyButtons[i];
+	buyButton.addEventListener("click", function() {
+		let appleName = this.getAttribute("data-name");
+		let applePrice = parseInt(this.previousElementSibling.textContent);
+    
+		if (gold >= applePrice) {
+			// Subtract gold and add apple to inventory
+			gold -= applePrice;
+			addItemToInventory(appleName);
+      
+			// Update gold and inventory displays
+			updateGoldDisplay();
+		} else {
+			alert("Not enough gold!");
+		}
+	});
+}
 
-const persone = "Alex";
+// Update initial displays
+updateInventoryDisplay();
+updateGoldDisplay();
 
-const bool = true;
-
-console.log('something');
-
-const obj = {
-  name: "John",
-  age: 25,
-  isMarried: false
-};
-
-const arr = ['a', 'b', 'c'];
-const arrObj = {
-  0 : 'a',
-  1 : 'b',
-  2 : 'c'
-};
-
-console.log(arr[1]);
-console.log(arrObj[2]);
 
 // alert('hello');
 
@@ -67,7 +93,7 @@ answers[2] = prompt('Сколько вам лет?','');
 console.log(typeof(answers)); */
 
 
-let incr = 10,
+/* let incr = 10,
     decr = 10;
 
 incr++;
@@ -77,8 +103,8 @@ console.log(incr);
 console.log(decr);
 
 console.log(2*4 == '9');
-
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели', '');
+ */
+/* const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели', '');
 
 const personalMovieDB = {
   count: numberOfFilms,
@@ -96,4 +122,11 @@ const a = prompt('Один из последних просмотренных ф
 personalMovieDB.movies[a] = b;
 personalMovieDB.movies[c] = d;
 
-console.log(personalMovieDB);
+console.log(personalMovieDB); */
+
+const video = document.querySelector("video");
+
+video.addEventListener("ended", () => {
+	video.currentTime = 0;
+	video.play();
+});

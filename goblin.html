@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>RPG Game Dungeon Crawler</title>
+ <link rel="stylesheet" type="text/css" href="style.css">
+ <style>
+  #game-container {
+ width: 800px;
+ margin: 0 auto;
+ text-align: center;
+}
+
+#player-stats {
+ background-color: #ccc;
+ padding: 10px;
+ margin-bottom: 20px;
+}
+
+#game-map {
+ background-image: url("map.jpg");
+ background-size: contain;
+ width: 800px;
+ height: 400px;
+ margin-bottom: 20px;
+}
+
+.goblin {
+ position: absolute;
+ width: 50px;
+ height: 50px;
+ background-image: url("goblin.png");
+ background-size: contain;
+ cursor: pointer;
+} 
+ </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script type="text/javascript">
+// Define player stats
+var player = {
+ level: 1,
+ experience: 0,
+ health: 100
+};
+
+// Define goblin stats
+var goblin = {
+ level: 1,
+ health: 50,
+ attack: 10
+};
+
+// Function to update player stats
+function updatePlayerStats() {
+ document.getElementById("player-level").innerHTML = player.level;
+ document.getElementById("player-experience").innerHTML = player.experience;
+ document.getElementById("player-health").innerHTML = player.health;
+}
+
+// Function to start a battle with a goblin
+function startBattle() {
+ // Generate a random goblin level based on player level
+ goblin.level = Math.floor(Math.random() * player.level) + 1;
+ 
+ // Update goblin health and attack based on level
+ goblin.health = goblin.level * 50;
+ goblin.attack = goblin.level * 10;
+ 
+ // Battle loop
+ while (player.health > 0 && goblin.health > 0) {
+  // Player attacks goblin
+  var playerAttack = Math.floor(Math.random() * 10) + player.level;
+  goblin.health -= playerAttack;
+  console.log("Player attacks goblin for " + playerAttack + " damage!");
+  
+  // Goblin attacks player
+  var goblinAttack = Math.floor(Math.random() * 10) + goblin.attack;
+  player.health -= goblinAttack;
+  console.log("Goblin attacks player for " + goblinAttack + " damage!");
+ }
+ 
+ // Check if player won or lost the battle
+ if (player.health > 0) {
+  console.log("Player wins the battle!");
+  
+  // Update player experience and level up if necessary
+  player.experience += goblin.level * 10;
+  if (player.experience >= player.level * 100) {
+   player.level++;
+   player.health = 100;
+   console.log("Player levels up to level " + player.level + "!");
+  }
+  
+  // Update player stats on screen
+  updatePlayerStats();
+ } else {
+  console.log("Player loses the battle...");
+ }
+}
+
+// Event listener for clicking on a goblin on the game map
+document.getElementById("game-map").addEventListener("click", function(event) {
+ if (event.target.classList.contains("goblin")) {
+  startBattle();
+ }
+});
+ </script>
+</head>
+<body>
+ <div id="game-container">
+  <h1>RPG Game Dungeon Crawler</h1>
+  <div id="player-stats">
+   <h2>Warrior</h2>
+   <p>Level: <span id="player-level">1</span></p>
+   <p>Experience: <span id="player-experience">0</span></p>
+   <p>Health: <span id="player-health">100</span></p>
+  </div>
+  <div id="game-map">
+   <!-- Game map goes here -->
+  </div>
+ </div>
+ 
+ <script src="game.js"></script>
+</body>
+</html>

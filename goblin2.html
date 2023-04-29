@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>RPG Dungeon Crawler</title>
+ <style>
+  body {
+   background-color: #F5DEB3;
+  }
+  
+  h1 {
+   text-align: center;
+   font-size: 48px;
+   color: #8B0000;
+   text-shadow: 2px 2px #000000;
+  }
+  
+  h2 {
+   font-size: 24px;
+   color: #8B0000;
+   text-shadow: 1px 1px #000000;
+  }
+  
+  p {
+   font-size: 18px;
+   color: #8B0000;
+   text-shadow: 1px 1px #000000;
+  }
+  
+  button {
+   background-color: #8B0000;
+   color: #FFFFFF;
+   font-size: 24px;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   box-shadow: 2px 2px #000000;
+  }
+  
+  button:hover {
+   background-color: #FF4500;
+   box-shadow: none;
+  }
+  
+  #playerStats, #goblinStats {
+   width: 400px;
+   padding: 20px;
+   margin: 50px auto;
+   background-color: #FFFFFF;
+   border-radius: 10px;
+   box-shadow: 5px 5px #000000;
+  }
+  
+  #playerName, #goblinName {
+   font-weight: bold;
+   color: #8B0000;
+   text-shadow: 1px 1px #000000;
+  }
+  
+  #playerLevel, #goblinLevel {
+   color: #FFD700;
+   text-shadow: 1px 1px #000000;
+  }
+  
+  #playerExperience, #goblinExperience {
+   color: #00FF00;
+   text-shadow: 1px 1px #000000;
+  }
+  
+  #playerAttack, #goblinAttack {
+   color: #FF4500;
+   text-shadow: 1px 1px #000000;
+  }
+  
+  #playerDefense, #goblinDefense {
+   color: #4169E1;
+   text-shadow: 1px 1px #000000;
+  }
+  
+  #goblinHealth {
+   color: #FF0000;
+   text-shadow: 1px 1px #000000;
+  }
+ </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script type="text/javascript">
+  var player = {
+   name: "Warrior",
+   level: 1,
+   experience: 0,
+   attack: 10,
+   defense: 5
+  };
+
+  var goblin = {
+   name: "Goblin",
+   level: 1,
+   experience: 10,
+   attack: 5,
+   defense: 2
+  };
+
+  function attack() {
+   var damage = player.attack - goblin.defense;
+   if (damage < 0) {
+    damage = 0;
+   }
+   goblin.health -= damage;
+   if (goblin.health <= 0) {
+    player.experience += goblin.experience;
+    if (player.experience >= player.level * 100) {
+     player.level++;
+     player.attack += 5;
+     player.defense += 2;
+    }
+    goblin.health = goblin.maxHealth;
+    goblin.level++;
+    goblin.experience += 5;
+   }
+   updateStats();
+  }
+
+  function updateStats() {
+   $("#playerName").text(player.name);
+   $("#playerLevel").text(player.level);
+   $("#playerExperience").text(player.experience);
+   $("#playerAttack").text(player.attack);
+   $("#playerDefense").text(player.defense);
+
+   $("#goblinName").text(goblin.name);
+   $("#goblinLevel").text(goblin.level);
+   $("#goblinExperience").text(goblin.experience);
+   $("#goblinAttack").text(goblin.attack);
+   $("#goblinDefense").text(goblin.defense);
+   $("#goblinHealth").text(goblin.health);
+  }
+
+  $(document).ready(function() {
+   goblin.maxHealth = 50;
+   goblin.health = goblin.maxHealth;
+   updateStats();
+   $("#attackButton").click(attack);
+  });
+ </script>
+</head>
+<body>
+ <h1>RPG Dungeon Crawler</h1>
+ <div id="playerStats">
+  <h2>Player Stats</h2>
+  <p>Name: <span id="playerName"></span></p>
+  <p>Level: <span id="playerLevel"></span></p>
+  <p>Experience: <span id="playerExperience"></span></p>
+  <p>Attack: <span id="playerAttack"></span></p>
+  <p>Defense: <span id="playerDefense"></span></p>
+ </div>
+ <div id="goblinStats">
+  <h2>Goblin Stats</h2>
+  <p>Name: <span id="goblinName"></span></p>
+  <p>Level: <span id="goblinLevel"></span></p>
+  <p>Experience: <span id="goblinExperience"></span></p>
+  <p>Attack: <span id="goblinAttack"></span></p>
+  <p>Defense: <span id="goblinDefense"></span></p>
+  <p>Health: <span id="goblinHealth"></span></p>
+ </div>
+ <button id="attackButton">Attack</button>
+</body>
+</html>
