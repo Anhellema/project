@@ -34,6 +34,10 @@ body {
   overflow: hidden;
 }
 
+.body-market {
+  background-image: url(../img/backgrnd-market.jpg);
+}
+
 video::-webkit-media-controls {
   display:none !important;
 }
@@ -126,7 +130,7 @@ video::-webkit-media-controls-start-playback-button {
   outline: 2px solid rgb(255, 65, 192);
 }
 
-.fun-nav li a {
+.fun-nav a {
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
@@ -166,7 +170,7 @@ video::-webkit-media-controls-start-playback-button {
   outline: 2px solid rgb(29, 239, 239);
 }
 
-.ow-prof-nav-li {
+.ow-profile-navigation li {
   display: inline-block;
   margin: 0px 1px;
   padding: 14px 25px;
@@ -175,17 +179,12 @@ video::-webkit-media-controls-start-playback-button {
   text-transform: uppercase;
 }
 
-.ow-prof-nav-li a {
-
-  display: inline-block;
-}
-
-.ow-prof-nav-li:hover {
+.ow-profile-navigation li:hover {
   background-color:rgb(24, 87, 95);
   outline: 2px solid rgb(27, 206, 207);
 }
 
-.ow-prof-nav-li a {
+.ow-profile-navigation a {
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
@@ -280,15 +279,12 @@ video::-webkit-media-controls-start-playback-button {
     left: 100%;
   }
 
-.slider header {
-  margin: 3px 8px;
-}
 
 header .container{
   position: relative;
   
   width: 100%;
-  min-width: 1107px;
+  min-width: 1920px;
   /* background: rgb(57, 73, 96);  */
   height: 62px;
 
@@ -421,14 +417,6 @@ audio {
   border-color: rgb(252, 243, 183);
 }
 
-.main-navigation li {
-  display: block;
-
-  margin: 3px;
-  padding: 3px;
-}
-
-
 .fun-nav a {
   display: inline;
   float: left;
@@ -443,11 +431,22 @@ audio {
   text-decoration: none;
 }
 
-.main-navigation li {
-  display: block;
+.main-navigation {
+  float: left;
+  margin: 0 0 0 10px;
+  padding: 0;
+  min-height: 50px;
+  min-width: 1050px;
+  width: auto;
 
-  margin: 3px;
-  padding: 3px;
+  font-size: 17px;
+  line-height: 20px;
+
+}
+
+
+.main-navigation li {
+  display: inline-block;
 }
 
 
@@ -472,14 +471,25 @@ audio {
 }
 
 .main-navigation a:hover {
-  color: rgb(252, 243, 183)
+  color: rgb(252, 243, 183);
+  background: rgba(0, 0, 0, 0.2);
+  
+}
+
+.main-navigation .active,
+.main-navigation .active:hover  { 
+  color: rgb(252, 243, 183);
+
+  background: rgba(0, 0, 0, 0.6);
+  outline-style: double ;
+  outline-color: black;
 }
 
 .user-block {
   display: block;
   float: right;
 
-  margin: 0px 40px 0px 6px;
+  margin: 17px 40px 6px 6px;
   padding: 14px 3px;
 
   width: 160px;
@@ -650,4 +660,68 @@ audio {
 
 .red-apple span{
   display: none;
+}
+*/
+.inventory-back {
+  display: block;
+
+  height: 299px;
+  width: 374px;
+  background-image: url(/files/uhc.png);
+
+  border:rgb(0, 0, 0) 1px solid;
+}
+
+.inventory-item-space {
+  padding: 40px 22px 33px 50px;
+}
+
+.inventory-item-space ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.market-inventory {
+  position: relative;
+  float: right;
+}
+
+.inventory {
+  position: relative;
+  float: left;
+}
+
+.market-container {
+  margin: 0 50px;
+}
+
+.market-center-focus {
+  margin: 50px 300px;
+}
+
+.name{
+  font-size: 0;
+
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat:no-repeat;
+}
+
+.red-apple .name {
+  background-image: url(/img/redapple.png);
+}
+
+.green-apple .name {
+  background-image: url(/img/greenapple.png);
+}
+
+.red-apple .name {
+  background-image: url(/img/redapple.png);
+}
+
+.red-apple .name {
+  background-image: url(/img/redapple.png);
 }

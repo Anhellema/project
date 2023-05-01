@@ -8,7 +8,7 @@
   <link rel="icon" type="image/x-icon" href="/img/favicon3.ico">
   <title>Галерея</title>
 </head>
-<body>
+<body class="body-market">
   <header class="main-header clearfix">
     <div class="container">
       <nav class="main-navigation">
@@ -17,13 +17,16 @@
             <a href="index.html">Главная</a>
           </li>
           <li>
-            <a href="#">market</a>
+            <a href="gallery.html">Галерея</a>
           </li>
           <li>
             <a href="ow.html">OW</a>
           </li>
           <li>
             <a href="fun room.html">fun room</a>
+          </li>
+          <li>
+            <a class="active" href="#">market</a>
           </li>
           <li>
             <a href="slider.html">Слайдер</a>
@@ -36,45 +39,50 @@
     </div>
   </header>
   <h1 class="gallery-h1" style="text-align: center;">Market</h1>
-  <div class="gallery-container clearfix">
-    <div class="gallery-center-focus">
-      <div id="inventory">
+  <p>You have <span id="gold">100</span><img href="/img/coin.png" src="/img/coin.png" width="20px" height="20px" text-align="center"></p>
+  <div class="market-container clearfix">
+    <div class="market-center-focus">
+      <div class="inventory" id="inventory">
         <h2>Инвентарь</h2>
-        <ul id="item-list">
-          <!-- Items will be dynamically added here -->
-        </ul>
+          <div class="inventory-back">
+            <div class="inventory-item-space">
+              <ul id="item-list">
+            <!-- Items will be dynamically added here -->
+              </ul>
+            </div>
+          </div>
       </div>
-      
-      <div id="market">
+      <div class="market-inventory id="market">
         <h2>Яблочная лавка</h2>
-        <p>You have <span id="gold">100</span><img href="/img/coin.png" src="/img/coin.png" width="20px" height="20px"></p>
-        <ul id="apple-list">
-            <span class="name">Зеленое яблоко</a></span>
+        <div class="inventory-back">
+          <div class="inventory-item-space">
+            <ul id="apple-list">
+            <li class="green-apple">
+            <span class="name">Зеленое яблоко</span>
             <span class="price">2<img href="/img/coin.png" src="/img/coin.png" width="20px" height="20px"></span>
-            <button class="buy-button" data-name="Зеленое яблоко">купить</button>
-          </li>
-          <li>
-            <span class="name">Желтое яблоко</span>
-            <span class="price">3<img href="/img/coin.png" src="/img/coin.png" width="20px" height="20px"></span>
-            <button class="buy-button" data-name="Желтое яблоко">купить</button>
-          </li>
-          <li>
-            <span class="name">Красное яблоко</span>
-            <span class="price">5<img href="/img/coin.png" src="/img/coin.png" width="20px" height="20px"></span>
-            <button class="buy-button" data-name="Красное яблоко">купить</button>
-          </li>
-          <li>
-            <span class="name">Золотое яблоко</span>
-            <span class="price">0<img href="/img/coin.png" src="/img/coin.png" width="20px" height="20px"></span>
-            <button class="buy-button" data-name="Золотое яблоко">купить</button>
-          </li>
-        </ul>
+              <button class="buy-button" data-name="Зеленое яблоко">купить</button>
+            </li>
+            <li>
+              <span class="name">Желтое яблоко</span>
+              <span class="price">3<img href="/img/coin.png" src="/img/coin.png" width="20px" height="20px"></span>
+              <button class="buy-button" data-name="Желтое яблоко">купить</button>
+            </li>
+            <li class="red-apple">
+              <span class="name">Красное яблоко</span>
+              <span class="price">5<img href="/img/coin.png" src="/img/coin.png" width="20px" height="20px"></span>
+              <button class="buy-button" data-name="Красное яблоко">купить</button>
+            </li>
+            <li>
+              <span class="name">Золотое яблоко</span>
+              <span class="price">0<img href="/img/coin.png" src="/img/coin.png" width="20px" height="20px"></span>
+              <button class="buy-button" data-name="Золотое яблоко">купить</button>
+            </li>
+            </ul>
+          </div> 
+        </div>
       </div>
-
-
     </div>
   </div>  
-
   <script src="/js/script.js""></script>
 </body>
 </html>
