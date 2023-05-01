@@ -59,6 +59,28 @@
 
 // console.log(4 + +"5");
 
-let incr = 10,
-	decr = 10;
-    
+// let incr = 10,
+// 	decr = 10;
+
+
+const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+
+const personalMovieDB = {
+	count: numberOfFilms,
+	movies: {},
+	actors: {},
+	genres: [],
+	privat: false
+};
+
+const a = prompt("Назва?", ""),
+	  b = prompt("Скiлькi?", ""),
+	  c = prompt("Назва?", ""),
+	  d = prompt("Скiлькi", "");
+
+document.write(a + b + c + d);
+
+personalMovieDB.movies[a] = b; 
+personalMovieDB.movies[c] = d; 
+
+console.log(personalMovieDB);
