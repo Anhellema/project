@@ -12,11 +12,11 @@ module.exports = {
 	},
 	"rules": {
 		"indent": [
-			"error",
+			"warning",
 			"tab"
 		],
 		"linebreak-style": [
-			"error",
+			"warning",
 			"windows"
 		],
 		"quotes": [

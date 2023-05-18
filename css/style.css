@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  overflow: hidden;
 
   background-image: url(../img/backgrnd.jpg);
   background-repeat:no-repeat;
@@ -292,10 +293,15 @@ header .container{
 
 .gallery-h1 {
   font-family: 'TT_Skip-E', Arial, serif;
+  margin: 30px 775px 30px 775px;
   
   font-size: 50px;
+  position: center;
+
+
 
   filter: drop-shadow(10px 10px 50px #4444dd);
+  z-index: 9998;
 }
 
 .gallery-h1-fun,
@@ -347,6 +353,7 @@ header .container{
   transform: translate(-50%, -50%);
 
   outline: 2px outset aliceblue;
+
 }
 
 audio {
@@ -386,6 +393,7 @@ audio {
   display: inline-block;
   
   margin-top: 40px;
+  z-index: 20;
 }
 
 .gallery-grid-gallery img,
@@ -725,3 +733,90 @@ audio {
 .red-apple .name {
   background-image: url(/img/redapple.png);
 }
+
+.overlay {
+  position: absolute;
+  display: none;
+
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0);
+  transition: opacity 0.3s ease-in-out, height 0s ease-in-out 0.3s;
+  border: 0px solid red;
+}
+
+.audioPlay:hover .overlay,
+.audioPrev:hover .overlay {
+  display: block;
+  float: inline-start;
+  transition: opacity 0.3s ease-in-out, height 0s ease-in-out;
+  z-index: 50;
+}
+
+.audioPlay:hover .overlay {
+  top: 140px;
+  left: 40px;
+  transform: translateX(-50%);
+  animation: overlay 1s forwards;
+  
+}
+
+.audioPrev:hover .overlay {
+  top: 140px;
+  left: 133px;
+  transform: translateX(-50%);
+  animation: overlay 1s forwards; 
+}
+
+@keyframes overlay {
+  to {top: 60px}
+ /* 0% {
+   transform: translateY(0);
+ }
+ 100% {
+   transform: translateY(10vh);
+ } */
+}
+
+button {
+  z-index: 9998;
+}
+
+.h1photo {
+  position: absolute;
+  display: none;
+  padding: 0 10px 0 10px;
+  font-size: 20px;
+
+  text-align: left;
+
+  height: auto;
+  width: 200%;
+
+  filter:none;
+  /* width: 100px;
+  height: 100px; */
+  background-color: rgb(69, 108, 160);
+  transition: opacity 0.3s ease-in-out, height 0s ease-in-out 0.3s;
+  border: 2px solid rgb(12, 11, 71);
+  border-style: double;
+}
+
+h1:hover .h1photo {
+  display: block;
+  float: inline-start;
+  transition: opacity 0.3s ease-in-out, height 0s ease-in-out;
+
+
+  top: 80px;
+  left: 180px;
+  transform: translateX(-50%);
+  animation: overlay 1s forwards;
+
+  z-index: 9999;
+}
+
+.gallery-h1 {
+  z-index: 9998;
+}
+
